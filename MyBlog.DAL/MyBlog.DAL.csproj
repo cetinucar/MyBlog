@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="UnitOfWork\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\MyBlog.Domain\MyBlog.Domain.csproj" />
   </ItemGroup>
 
