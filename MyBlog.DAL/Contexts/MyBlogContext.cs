@@ -9,7 +9,7 @@ using System.Text;
 
 namespace MyBlog.DAL.Contexts
 {
-    class MyBlogContext : DbContext
+    public class MyBlogContext : DbContext
     {
         public MyBlogContext(DbContextOptions<MyBlogContext> options) : base(options)
         {
