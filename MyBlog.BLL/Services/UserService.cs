@@ -6,15 +6,16 @@ using MyBlog.DAL.UnitOfWork;
 using MyBlog.Domain.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace MyBlog.BLL.Services
 {
-   public class UserService : IUserService
+    public class UserService : IUserService
 
     {
-        IUnitOfWork<MyBlogContext> _unitOfWork;
-        IRepository<User> _userRepository;
+        readonly IUnitOfWork<MyBlogContext> _unitOfWork;
+        readonly IRepository<User> _userRepository;
 
         public UserService(IUnitOfWork<MyBlogContext> unitOfWork)
         {
@@ -36,6 +37,11 @@ namespace MyBlog.BLL.Services
             var user = _userRepository.GetById(id);
             _userRepository.Delete(user);
             _unitOfWork.SaveChanges();
+        }
+
+        public List<User> GetAllUser()
+        {
+            return _userRepository.GetAll().OrderBy(x => x.Id).ToList();
         }
 
         public User GetUserById(int id)
