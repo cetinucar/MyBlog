@@ -73,6 +73,11 @@ namespace MyBlog.BLL.Services
 
         }
 
+        public bool UserExists(string username)
+        {
+            return _userRepository.GetAll().Any(x => x.UserName == username);
+        }
+
         public bool VerifyPassword(User user, string password)
         {
             return HashHelper.VerifyHashedPassword(user.PasswordHash, password);
