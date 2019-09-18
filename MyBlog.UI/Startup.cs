@@ -37,7 +37,7 @@ namespace MyBlog.UI
 
             });
 
-            services.AddDbContext<MyBlogContext>(x =>x
+            services.AddDbContext<MyBlogContext>(x => x
             .UseLazyLoadingProxies()
             .UseSqlServer(Configuration.GetConnectionString("MyBlogContext")));
 
@@ -76,8 +76,14 @@ namespace MyBlog.UI
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                name: "areas",
+                template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+         );
+                routes.MapRoute(
+                name: "default",
+                template: "{controller=Home}/{action=Index}/{id?}"
+      );
+
             });
         }
     }
