@@ -8,10 +8,19 @@
 
 @if (showBanner)
 {
-    <div id="cookieConsent" class="alert alert-info alert-dismissible fade show" role="alert">
-        Use this space to summarize your privacy and cookie use policy. <a asp-area="" asp-controller="Home" asp-action="Privacy">Learn More</a>.
+    <div id="cookieConsent" class="row alert alert-info alert-dismissible fade show" role="alert">
+
+        <div class="col-sm-11">
+            Sizlere daha iyi bir hizmet sunabilmek için sitemizde çerezlerden faydalanıyoruz.Sitemizi kullanmaya devam ederek çerezleri <br />
+            kullanmamıza izin vermiş oluyorsunuz.
+
+            Detaylı bilgi almak için <a asp-area="" asp-controller="Home" asp-action="Privacy">Çerez Politikası ve Gizlilik Politikası</a> 'ndan inceleyebilirsiniz.
+        </div>
+
+
+
         <button type="button" class="accept-policy close" data-dismiss="alert" aria-label="Close" data-cookie-string="@cookieString">
-            <span aria-hidden="true">Accept</span>
+            <span aria-hidden="true">Kabul Et</span>
         </button>
     </div>
     <script>

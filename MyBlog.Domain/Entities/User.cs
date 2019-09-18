@@ -17,6 +17,6 @@ namespace MyBlog.Domain.Entities
         public UserType UserType { get; set; }
 
 
-        public ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Post> Posts { get; set; }
     }
 }

@@ -17,8 +17,8 @@ namespace MyBlog.Domain.Entities
 
 
 
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
     }
 }

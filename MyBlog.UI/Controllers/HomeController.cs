@@ -12,23 +12,36 @@ using MyBlog.DAL.Contexts;
 using MyBlog.DAL.UnitOfWork;
 using MyBlog.Domain.Entities;
 using MyBlog.UI.Models;
+using MyBlog.UI.ViewModels;
 
 namespace MyBlog.UI.Controllers
 {
     public class HomeController : Controller
     {
-       
-        IUserService _userService;
 
-        public HomeController(IUserService userService)
+        IUserService _userService;
+        ICategoryService _categoryService;
+        IPostService _postService;
+        public HomeController(IUserService userService, ICategoryService categoryService, IPostService postService)
         {
             _userService = userService;
+            _categoryService = categoryService;
+            _postService = postService;
 
         }
 
         public IActionResult Index()
         {
-            return View();
+            var categories = _categoryService.GetCategories();
+            var posts = _postService.GetPosts();
+
+            var vm = new HomeIndexViewModel
+            {
+                Categories = categories,
+                Posts = posts
+            };
+
+            return View(vm);
         }
 
         public IActionResult Privacy()
