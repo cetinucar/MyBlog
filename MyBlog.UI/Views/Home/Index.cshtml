@@ -16,7 +16,7 @@
                 <h2 class="blog-post-title">@post.Title</h2>
                 <p class="blog-post-meta">January 1, 2014 by <a href="#">@post.Author.UserName</a></p>
 
-                @post.Content
+                @Html.Raw(@post.Content)
             </div><!-- /.blog-post -->
         }
 

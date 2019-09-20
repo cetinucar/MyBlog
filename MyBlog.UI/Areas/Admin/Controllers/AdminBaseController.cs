@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace MyBlog.UI.Areas.Admin.Controllers
 {
     [Authorize]
-    public class AdminBaseController : Controller
+    [Area("Admin")]
+    public abstract class AdminBaseController : Controller
     {
       
     }
